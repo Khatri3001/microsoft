@@ -13,6 +13,11 @@ footer .footer p {
   margin: 0;
 }
 
+.follow-us div{
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
