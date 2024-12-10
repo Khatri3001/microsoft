@@ -17,4 +17,23 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
   block.append(footer);
+
+  const rows = [...block.children];
+
+  rows.forEach((row, r) => {
+    console.log(row)
+    //Select the "follow-us" block
+    
+    const followUsContent = document.querySelector('.follow-us div')
+
+    const followUsText = document.querySelector('.follow-us div > div > p');
+    const pictureElement = document.querySelector('.follow-us div > div > picture');
+
+    console.log(followUsText,pictureElement)
+
+
+    followUsContent.classList.add('follow-us-content')
+    followUsText.classList.add('follow-us-text');
+    pictureElement.classList.add('follow-us-picture');
+  });
 }
