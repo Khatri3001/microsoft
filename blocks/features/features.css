@@ -8,7 +8,7 @@ body{
 
 .features{
     display: flex;
-    width: 65%;
+    width: 100%;
     border:1px solid #e7d9d954;
  
 }

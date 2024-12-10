@@ -1,10 +1,10 @@
 .blog-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  /* gap: 30px; */
   align-items: right;
   padding: 0;
-  margin-left: 50rem !important;
+  /* margin-left: 50rem !important; */
 }
 
 .styled-blog {
@@ -34,4 +34,8 @@
   font-size: 12px;
   font-family: "Segoe UI", sans-serif;
   color: #2F2F2F;
+}
+
+.blog-wrapper{
+  padding-left: 0px;
 }
