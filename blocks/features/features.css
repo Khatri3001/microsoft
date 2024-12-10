@@ -1,0 +1,91 @@
+
+body{
+    font-size: 15px;
+    color: #2f2f2f;
+    font-family:"Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+}
+
+.features{
+    display: flex;
+    width: 65%;
+    border:1px solid #e7d9d954;
+ 
+}
+
+.features>ul {
+    list-style-type: none;
+    list-style-image: none;
+    padding-left:0px;
+}
+
+.features > ul > li:first-of-type h1{
+   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 100 !important;
+   font-size: 34px;
+   color: #2f2f2f;
+}
+
+.features > ul > li img.social-icon {
+    width: 5%;
+    height: 35px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+.features-card-body{
+    padding: 0px 24px 24px
+}
+
+.features-card-discription{
+    padding: 0px 24px 24px;
+}
+
+.features-card-discription > h1{
+    font-size: 15px;
+    color: #2f2f2f;
+    font-family:"Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+.features-card-discription > h3{
+    font-size: 20px;
+    color: #2f2f2f;
+    font-family:"Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding:35px 0 5px
+}
+
+.features > ul > li>div.features-card-image > picture > img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.features-card-body > p> a:any-link{
+    color: #55575f;
+    text-decoration: underline !important;
+}
+
+.features-card-body > p>  a:any-link:hover {
+    color: #0067b8; /* Example color change on hover */
+}
+
+.border-left{
+    
+    margin-left: 24px;
+}
+
+blockQuote{
+    font-size: 15px;
+    font-family:"Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-left: 2px solid rgba(0, 0, 0, 0.8);
+    margin-bottom: 12px;
+    margin: 36px 0;
+    padding: 0 24px;
+}
+
+blockQuote p {
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 200;
+    font-size: 18px
+}
