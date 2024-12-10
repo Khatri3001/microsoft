@@ -1,25 +1,97 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+/* Style for the footer wrapper */
+.footer-wrapper {
+  background-color: #f3f3f3; /* Light grey background */
+  font-family: Arial, sans-serif; /* Font for text */
+  color: #333; /* Text color */
+  
 }
-
-footer .footer > div {
+.footer-wrapper > .footer {
+  max-width: 1350px;
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 60px 20px; /* Spacing around the footer content */
+
 }
 
-footer .footer p {
-  margin: 0;
+/* Grid container for the footer content */
+.follow-us > div:not(:first-child) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamic columns */
+  gap: 30px; /* Space between columns */
+  text-align: left; /* Align content to the left */
 }
 
-.follow-us div{
-    display: flex;
-    justify-content: space-between;
+.follow-us > div:nth-child(3) .button-container {
+  a.button:any-link,
+button { 
+  all: unset;
+}
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+/* Styling for headings inside each column */
+.follow-us-wrapper > div > div:nth-child(2) p {
+  font-weight: bold; /* Make the headings bold */
+  margin-bottom: 10px; /* Space below headings */
+  font-size: 16px; /* Adjust heading size */
+  text-decoration: none;
+}
+
+/* Styling for links inside columns */
+.follow-us-wrapper p {
+  margin: 5px 0; /* Space between items */
+  font-size: 14px; /* Text size for list items */
+  line-height: 1.5; /* Improve readability */
+  color: #333; /* Default text color */
+  cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+.follow-us-wrapper p a {
+  color: black;
+}
+
+.follow-us-wrapper p:hover {
+  text-decoration: underline; /* Underline on hover for interactivity */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .follow-us > div:not(:first-child) {
+    grid-template-columns: repeat(3, 1fr); /* Two columns on smaller screens */
+    gap: 0;
   }
+  .follow-us-container {
+    padding: 10px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .follow-us > div:not(:first-child) {
+    gap:0;
+  }
+  
+}
+@media (max-width: 480px) {
+  .follow-us > div:not(:first-child) {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}
+
+.follow-us .follow-us-text {
+  margin: 0;                   /* Remove default margin */
+  font-size: 16px;             /* Adjust font size */
+  color: #000;                 /* Black text */
+   
+}
+
+.follow-us .follow-us-picture img {
+  width: 35px;                 /* Adjust width of the icon */
+  height: 20px;                /* Adjust height of the icon */
+  display: block;
+}
+
+.follow-us-content {
+  display: flex;               /* Align items in a row */
+  align-items: center;         /* Vertically center items */
+  padding-bottom: 20px;          /* Add spacing inside the container */
+  font-family: Arial, sans-serif;
+ 
 }
