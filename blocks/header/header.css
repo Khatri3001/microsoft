@@ -197,7 +197,6 @@ header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li {
 }
 
 header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li::after {
-  content: 'abcd';
   position: absolute;
 }
 
