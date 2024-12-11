@@ -226,8 +226,8 @@ button.secondary {
   color: var(--text-color);
 }
 
-main{
-  padding-left: 27rem;
+main {
+  padding-left: 0; 
 }
 
 main img {
@@ -267,6 +267,57 @@ main> .section >.features-wrapper{
 main>.section:first-of-type {
   margin-top: 2%;
 }
+
+
+.section.features-container.blog-container {
+  margin: 0; 
+  padding: 20px; 
+  display: flex; 
+  gap: 20px; 
+  justify-content: flex-start; 
+  align-items: flex-start; 
+  max-width: 100%; 
+}
+.section.features-container.blog-container .features-wrapper {
+  flex: 7; 
+  max-width: 100%; 
+  text-align: left; 
+}
+
+.section.features-container.blog-container .blog-wrapper {
+  flex: 3; 
+  background-color: #f9f9f9; 
+  padding: 16px; 
+  border-radius: 8px; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  text-align: left; 
+}
+
+/* General styles for content inside both sections */
+.section.features-container.blog-container .features-wrapper p,
+.section.features-container.blog-container .blog-wrapper p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .section.features-container.blog-container {
+    flex-direction: column; 
+  }
+
+  .section.features-container.blog-container .features-wrapper,
+  .section.features-container.blog-container .blog-wrapper {
+    flex: unset; 
+    width: 100%; 
+    max-width: 100%; 
+  }
+
+  .section.features-container.blog-container .blog-wrapper {
+    margin-top: 20px;
+  }
+}
+
 
 @media (width >=900px) {
   main>.section>div {
