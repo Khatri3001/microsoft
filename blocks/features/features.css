@@ -89,3 +89,7 @@ blockQuote p {
     font-weight: 200;
     font-size: 18px
 }
+
+ul {
+    list-style-type: auto;
+  }

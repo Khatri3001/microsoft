@@ -29,7 +29,13 @@
 }
 .blog-title a {
   color: #2F2F2F; 
+  text-decoration:none;
 }
+
+.blog-title a:hover { 
+  text-decoration:underline !important;
+}
+
 .blog-meta {
   font-size: 12px;
   font-family: "Segoe UI", sans-serif;
