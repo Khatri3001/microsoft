@@ -1,10 +1,17 @@
 .blog-container {
   display: flex;
   flex-direction: column;
-  /* gap: 30px; */
   align-items: right;
   padding: 0;
-  /* margin-left: 50rem !important; */
+}
+
+.blog-heading {
+  font-size: 20px;
+  font-family: "Segoe UI", sans-serif;
+  color: #2F2F2F !important;
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: 400 !important;
 }
 
 .styled-blog {
@@ -30,6 +37,11 @@
 
 .blog-title a {
   color: #2F2F2F;
+  text-decoration: none;
+}
+
+.blog-title a:hover {
+  text-decoration: underline !important;
 }
 
 .blog-meta {
