@@ -1,47 +1,72 @@
 /* Style for the footer wrapper */
 .footer-wrapper {
-  background-color: #f3f3f3; /* Light grey background */
-  font-family: Arial, sans-serif; /* Font for text */
-  color: #333; /* Text color */
-  
+  background-color: #f3f3f3;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
-.footer-wrapper > .footer {
+
+.footer-wrapper >.footer {
   max-width: 1350px;
   margin: auto;
-  padding: 60px 20px; /* Spacing around the footer content */
+  padding: 60px 20px;
+}
 
+.follow-us {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Grid container for the footer content */
-.follow-us > div:not(:first-child) {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamic columns */
-  gap: 10px; /* Space between columns */
-  text-align: left; /* Align content to the left */
+
+.follow-us>div {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+
 }
 
-.follow-us > div:nth-child(3) .button-container {
-  a.button:any-link,
-button { 
-  all: unset;
+.follow-us>div>div:first-child>p {
+  font-weight: bold;
 }
+
+.follow-us .follow-us-content>div {
+ margin-right: -135px;
+}
+
+.follow-us>div>div {
+  flex: 1;
+  min-width: 200px;
+
+}
+
+.follow-us .follow-us-content {
+  flex-direction: unset;
+
+}
+
+.follow-us > div ~ div .button-container {
+  a.button:any-link,
+  button {
+    all: unset;
+  }
 }
 
 /* Styling for headings inside each column */
-.follow-us-wrapper > div > div:nth-child(2) p {
-  font-weight: bold; /* Make the headings bold */
-  margin-bottom: 10px; /* Space below headings */
-  font-size: 16px; /* Adjust heading size */
+.follow-us-wrapper>div>div:nth-child(2) p {
+  margin-bottom: 10px;
+  font-size: 16px;
   text-decoration: none;
 }
 
 /* Styling for links inside columns */
 .follow-us-wrapper p {
-  margin: 5px 0; /* Space between items */
-  font-size: 14px; /* Text size for list items */
-  line-height: 1.5; /* Improve readability */
-  color: #333; /* Default text color */
-  cursor: pointer; /* Pointer cursor for interactivity */
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  cursor: pointer;
 }
 
 .follow-us-wrapper p a {
@@ -49,81 +74,38 @@ button {
 }
 
 .follow-us-wrapper p:hover {
-  text-decoration: underline; /* Underline on hover for interactivity */
+  text-decoration: underline;
+  /* Underline on hover for interactivity */
 }
 
 
 
 .follow-us .follow-us-text {
-  margin: 0;                   /* Remove default margin */
-  font-size: 16px;             /* Adjust font size */
-  color: #000;                 /* Black text */
-   
+  margin: 0;
+  font-size: 16px;
+  color: #000;
+
 }
 
 .follow-us .follow-us-picture img {
-  width: 35px;                 /* Adjust width of the icon */
-  height: 20px;                /* Adjust height of the icon */
+  width: 35px;
+  height: 20px;
   display: block;
+  
+
 }
 
 .follow-us-content {
-  display: flex;               /* Align items in a row */
-  align-items: center;         /* Vertically center items */
-  padding-bottom: 20px;          /* Add spacing inside the container */
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
   font-family: Arial, sans-serif;
- 
+
 }
 
-/* Responsive Design*/
 @media (max-width: 1280px) {
-  .footer-wrapper > .footer {
-    min-width: 1250px;
-    max-width: 1250px;
+  .follow-us>div {
+    flex-direction: column;
+    /* Stack columns vertically on smaller screens */
   }
 }
-
-@media (max-width: 1220px) {
-  .follow-us > div:not(:first-child) {
-    grid-template-columns: repeat(4, 1fr); /* Two columns on smaller screens */
-    gap: 0;
-  }
-  .footer-wrapper > .footer {
-    min-width: unset  ;
-  }
-}
-
-
-@media (max-width: 1024px) {
-  .follow-us > div:not(:first-child) {
-    grid-template-columns: repeat(3, 1fr); /* Single column on very small screens */
-  }
-  .footer-wrapper > .footer {
-    min-width: unset  ;
-  }
-  
-}
-
-@media (max-width: 900px)  {
-  .follow-us > div:not(:first-child) {
-    grid-template-columns: repeat(2, 1fr); /* Single column on very small screens */
-  }
-  .footer-wrapper > .footer {
-    min-width: unset  ;
-    max-width: unset;
-  }
-
-}
-
-@media (max-width: 480px)  {
-  .follow-us > div:not(:first-child) {
-    grid-template-columns: 1fr; /* Single column on very small screens */
-  }
-  .footer-wrapper > .footer {
-    min-width: unset  ;
-    max-width: unset;
-  }
-
-}
-
-

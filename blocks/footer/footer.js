@@ -28,12 +28,10 @@ export default async function decorate(block) {
 
     const followUsText = document.querySelector('.follow-us div > div > p');
     const pictureElement = document.querySelector('.follow-us div > div > picture');
-
-    console.log(followUsText,pictureElement)
-
-
-    followUsContent.classList.add('follow-us-content')
-    followUsText.classList.add('follow-us-text');
-    pictureElement.classList.add('follow-us-picture');
+    const followUSColumns = document.querySelector('.follow-us .follow-us-content + div');
+    followUsContent?.classList.add('follow-us-content')
+    followUsText?.classList.add('follow-us-text');
+    pictureElement?.classList.add('follow-us-picture');
+    followUSColumns?.classList.add('follow-us-column');
   });
 }
