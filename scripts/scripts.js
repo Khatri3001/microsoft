@@ -1,7 +1,6 @@
 import {
   buildBlock,
   loadHeader,
-  loadfeature,
   loadFooter,
   decorateButtons,
   decorateIcons,
@@ -110,7 +109,6 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
 
   loadHeader(doc.querySelector("header"));
-  loadfeature(doc.querySelector("feature"));
   loadFooter(doc.querySelector("footer"));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);

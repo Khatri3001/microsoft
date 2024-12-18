@@ -19,7 +19,7 @@ function sampleRUM(checkpoint, data) {
       : Date.now() - window.hlx.rum.firstReadTime;
   try {
     window.hlx = window.hlx || {};
-    sampleRUM.enhance = () => {};
+    sampleRUM.enhance = () => { };
     if (!window.hlx.rum) {
       const param = new URLSearchParams(window.location.search).get("rum");
       const weight =
@@ -118,8 +118,7 @@ function sampleRUM(checkpoint, data) {
             script.setAttribute("crossorigin", "anonymous");
           }
           script.src = new URL(
-            `.rum/@adobe/helix-rum-enhancer@${
-              enhancerVersion || "^2"
+            `.rum/@adobe/helix-rum-enhancer@${enhancerVersion || "^2"
             }/src/index.js`,
             sampleRUM.baseURL
           ).href;
@@ -182,10 +181,10 @@ function init() {
 function toClassName(name) {
   return typeof name === "string"
     ? name
-        .toLowerCase()
-        .replace(/[^0-9a-z]/gi, "-")
-        .replace(/-+/g, "-")
-        .replace(/^-|-$/g, "")
+      .toLowerCase()
+      .replace(/[^0-9a-z]/gi, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "")
     : "";
 }
 
@@ -676,13 +675,6 @@ async function loadHeader(header) {
   decorateBlock(headerBlock);
   return loadBlock(headerBlock);
 }
-
-async function loadfeature(feature) {
-  const featureBlock = buildBlock("feature", "");
-  feature.append(featureBlock);
-  decorateBlock(featureBlock);
-  return loadBlock(featureBlock);
-}
 /**
  * Loads a block named 'footer' into footer
  * @param footer footer element
@@ -774,6 +766,5 @@ export {
   toCamelCase,
   toClassName,
   waitForFirstImage,
-  wrapTextNodes,
-  loadfeature,
+  wrapTextNodes
 };

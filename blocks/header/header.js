@@ -85,7 +85,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
-  const navDrops = navSections.querySelectorAll('.nav-drop');
+  const navDrops = navSections.querySelectorAll('.nav-drop') ?? navSections.querySelectorAll('.nav-right-drop');
   if (isDesktop.matches) {
     navDrops.forEach((drop) => {
       if (!drop.hasAttribute('tabindex')) {
@@ -101,7 +101,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 
   //enable menu collapse on escape keypress
-  if (!expanded || isDesktop.matches) {
+  if (isDesktop.matches) {
     // collapse menu on escape press
     window.addEventListener('keydown', closeOnEscape);
     // collapse menu on focus lost
@@ -185,14 +185,22 @@ async function loadNav(block) {
   const navRightSections = nav.querySelector('.nav-right-sections');
   if (navRightSections) {
     navRightSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navRightSection) => {
+
+      const span = document.createElement('span');
+      const ul = navRightSection.querySelector('ul');
+      const spanNode = document.createTextNode('All Microsoft')
+      span.append(spanNode);
+      navRightSection.replaceChildren(span);
+      navRightSection.append(ul);
       if (navRightSection.querySelector('ul')) navRightSection.classList.add('nav-right-drop');
-      navRightSection.addEventListener('click', (e) => {
-        if (isDesktop.matches) {
+      if (isDesktop.matches) {
+        navRightSection.addEventListener('click', (e) => {
           const expanded = navRightSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navRightSection);
           navRightSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
+          navRightSection.querySelector('span').display = 'block';
+        })
+      }
     });
   }
 
@@ -203,16 +211,27 @@ async function loadNav(block) {
       <span class="nav-hamburger-icon"></span>
     </button>`;
   hamburger.addEventListener('click', () => {
+    navRightSections.querySelector('span').style.display = 'none';
+    navRightSections.querySelectorAll('.nav-right-drop>ul>li').forEach((drop) => {
+      drop.classList.add('nav-right-drop-child');
+      drop.setAttribute('aria-expanded', 'false');
+      drop.addEventListener('click', () => {
+        const expanded = drop.getAttribute('aria-expanded') === 'true';
+        drop.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      })
+    });
     toggleMenu(nav, navRightSections);
+
   });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navRightSections, isDesktop.matches));
-
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  if (!isDesktop.matches) {
+    navWrapper.classList.add('nav-wrapper-border');
+  }
   navWrapper.append(nav);
   const blogMenu = document.createElement('div');
   blogMenu.classList.add('blog-menu');
@@ -257,33 +276,45 @@ async function loadNav(block) {
   searchFunc(navLogo, block);
 }
 
-
-
+/**
+ * search button functionality
+ * @param {*} navLogo 
+ * @param {*} block 
+ */
 function searchFunc(navLogo, block) {
   const searchIcon = document.querySelector('.icon-search');
-  //const navBar = document.querySelector('#nav');
   searchIcon.addEventListener('click', () => {
     const div = document.createElement('div');
     div.classList.add('search-container');
     const input = document.createElement('input');
     input.classList.add('search-input');
-    //input.type('text');
     const searchBtn = document.createElement('button');
     const node = document.createTextNode('btn');
     const cancelBtn = document.createElement('button');
-    const cancelNode = document.createTextNode('Cancel');
-    cancelBtn.classList.add('cancel-btn');
-    cancelBtn.append(cancelNode);
     searchBtn.append(node);
     searchBtn.classList.add('search-btn')
     input.appendChild(searchBtn);
-    div.appendChild(input);
-    div.appendChild(cancelBtn);
-
     block.textContent = '';
     const nav = document.createElement('nav');
     nav.id = 'nav';
-    nav.append(navLogo);
+    if (isDesktop.matches) {
+      nav.classList.remove('search');
+      nav.append(navLogo);
+      const cancelNode = document.createTextNode('Cancel');
+      cancelBtn.classList.add('cancel-btn');
+      cancelBtn.append(cancelNode);
+      div.appendChild(input);
+      div.appendChild(cancelBtn);
+    }
+    else {
+      nav.classList.add('search');
+      cancelBtn.classList.add('cancel-btn');
+      const lineDiv = document.createElement('div');
+      lineDiv.classList.add('horizontal-line');
+      cancelBtn.appendChild(lineDiv);
+      div.appendChild(cancelBtn);
+      div.appendChild(input);
+    }
     nav.append(div);
     const navWrapper = document.createElement('div');
     navWrapper.className = 'nav-wrapper';
@@ -304,13 +335,9 @@ export default async function decorate(block) {
   // load nav as fragment
   await loadNav(block);
   const navLogo = nav.querySelector('.nav-logo');
-  // for search button
-  // if (isDesktop.matches) {
   searchFunc(navLogo, block);
-
-
-  //const navBar = document.querySelector('#nav');
-
-
+  isDesktop.addEventListener('change', () => {
+    loadNav(block);
+  });
 
 }
