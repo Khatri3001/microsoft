@@ -184,7 +184,8 @@ header nav[aria-expanded='true'] .nav-right-sections {
   margin-left: -14px;
 }
 
-header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li {
+header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop > ul > li,
+header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop > ul > li > ul > li {
   padding: 14px 15px 14px;
   border-bottom: 1px solid #e6e6e6;
   color: #262626;
@@ -225,10 +226,10 @@ header nav .nav-sections ul>li {
   font-size: 14px;
 }
 
-header nav .nav-right-sections ul>li {
+/* header nav .nav-right-sections ul>li {
   font-size: 14px;
   font-weight: 500;
-}
+} */
 
 header nav .nav-sections ul>li>ul {
   margin-top: 0;
@@ -636,4 +637,8 @@ header nav .nav-right-sections .nav-right-drop-child::after {
   border: 2px solid currentcolor;
   border-radius: 0 1px 0 0;
   border-width: 2px 2px 0 0;
+}
+
+nav-right-drop-child > ul >li{
+
 }
