@@ -7,7 +7,7 @@ body{
 }
 
 .features{
-    display: flex;
+    /* display: flex; */
     width: 100%;
     border:1px solid #e7d9d954;
  

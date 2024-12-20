@@ -257,8 +257,8 @@ main>.section {
 }
 
 main>.section>div {
-  max-width: 1200px;
-  margin: inherit;
+  /* max-width: 1200px; */
+  /* margin: inherit; */
   padding: 0 24px;
 }
 
@@ -272,13 +272,34 @@ main>.section:first-of-type {
 
 
 .section.features-container.blog-container {
-  margin: 0;
+  margin: 0 0 0 15%;
   padding: 20px;
   display: flex;
-  gap: 20px;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
   align-items: flex-start;
   max-width: 100%;
+}
+
+.fragment-wrapper {
+  flex: 1; /* Allow each item to take equal space */
+  min-width: 200px; /* Minimum width for responsiveness */
+  max-width: 100%; /* Ensure no item exceeds 100% of its container */
+  box-sizing: border-box; /* Prevent padding/margins from affecting the width */
+}
+
+/* Optional: Adjust at specific breakpoints */
+@media (max-width: 768px) {
+  .fragment-wrapper {
+    flex: 1 1 45%; 
+  }
+}
+
+@media (max-width: 480px) {
+  .fragment-wrapper {
+    flex: 1 1 100%;
+  }
 }
 
 .section.features-container.blog-container .features-wrapper {
