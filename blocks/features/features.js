@@ -1,6 +1,15 @@
 import { createOptimizedPicture } from "../../scripts/aem.js";
 
 export default function decorate(block) {
+  fetch('/query-index.json')
+    .then((response) => response.json())
+    .then((json) => {
+      const complete = (json.limit + json.offset) >= json.total;
+      json.data.forEach((post) => {
+        console.log(post);
+      });
+
+    });
   /* change to ul, li */
   const ul = document.createElement("ul");
   [...block.children].forEach((row, i) => {
