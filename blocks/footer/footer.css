@@ -114,3 +114,48 @@
     margin-left: 0;
   }
 }
+
+.language-menu {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 11px;
+    color: #616161;
+
+}
+
+.parent {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  display: inline-block;
+  position: relative; /* Ensures child menu is positioned relative to the parent */
+}
+
+.parent > picture > img {
+  width: 20px;
+  height:20px;
+}
+
+.child-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none; /* Initially hidden */
+  position: absolute; /* Position dropdown beneath parent */
+  top: 100%; /* Position directly below the parent item */
+  left: 0;
+  background-color: #f0f0f0;
+  /* border: 1px solid #ccc; */
+  width: 200px;
+}
+
+.child {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.child:hover {
+  background-color: #e0e0e0;
+}
