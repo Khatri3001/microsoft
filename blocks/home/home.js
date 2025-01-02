@@ -10,7 +10,6 @@ function decorateArticles(articles, featuredDiv, featuredArticleCount, moreNewsD
         const {
             path, title, image, date, author
         } = article;
-        console.log(article.date);
         const container = createTag('div', { class: 'article-cards' });
         const cardImage = createTag('p', { class: 'article-card-image' }, image);
         const cardBody = createTag('div', { class: 'article-card-body' });
