@@ -256,12 +256,6 @@ main>.section {
   flex-direction: row;
 }
 
-main>.section>div {
-  /* max-width: 1200px; */
-  /* margin: inherit; */
-  padding: 0 24px;
-}
-
 main>.section>.features-wrapper {
   max-width: 56%;
 }
@@ -358,4 +352,12 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+.book-wrapper {
+  flex: 2;
+}
+
+.related-stories-tag-wrapper {
+  flex: 1;
 }

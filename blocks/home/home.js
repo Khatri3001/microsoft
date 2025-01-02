@@ -2,6 +2,7 @@ import { createTag } from "../../utils/utils.js";
 import { createOptimizedPicture } from "../../scripts/aem.js";
 
 function decorateArticles(articles, featuredDiv, featuredArticleCount, moreNewsDiv, moreNewsCount) {
+
     const wrapper = createTag('div', { class: 'article-wrapper' });
     articles.forEach((article, i) => {
         if (!article) return;
@@ -9,7 +10,7 @@ function decorateArticles(articles, featuredDiv, featuredArticleCount, moreNewsD
         const {
             path, title, image, date, author
         } = article;
-
+        console.log(article.date);
         const container = createTag('div', { class: 'article-cards' });
         const cardImage = createTag('p', { class: 'article-card-image' }, image);
         const cardBody = createTag('div', { class: 'article-card-body' });
@@ -20,7 +21,10 @@ function decorateArticles(articles, featuredDiv, featuredArticleCount, moreNewsD
         const h3 = createTag('h3', null, title + ' >')
         descriptionEl.append(h3);
         cardBody.append(dateEl, descriptionEl);
-        container.append(cardImage, cardBody);
+        if (image) {
+            container.append(cardImage);
+        }
+        container.append(cardBody);
         if (i < featuredArticleCount) {
             featuredDiv.append(container)
         }
@@ -50,22 +54,26 @@ export default async function decorate(block) {
             moreNewsCount = + row.children[1].textContent;
         }
     });
-    await fetch('/query-index.json')
+    await fetch('en-us/query-index.json')
         .then((response) => response.json())
         .then((json) => {
-            json.data.slice(0, featuredArticleCount + moreNewsCount).forEach((post) => {
+            json.data.sort((a, b) => b.lastModified - a.lastModified).slice(0, featuredArticleCount + moreNewsCount).forEach((post) => {
                 post.path = window.location.origin + post.path;
-                post.image = createOptimizedPicture(window.location.origin + post.image, '', false, [
-                    { width: "750" },
-                ]);
+                if (post.image) {
+                    post.image = createOptimizedPicture(window.location.origin + post.image, '', false, [
+                        { width: "750" },
+                    ]);
+                }
+
                 const date = new Date(post.date * 1000);
                 const options = { year: 'numeric', month: 'short', day: 'numeric' };
                 post.date = date.toLocaleDateString('en-US', options);
+
                 articles.push(post);
             });
 
         });
-    const wrapper = decorateArticles(articles.sort((a, b) => b.date - a.date), featuredDiv, featuredArticleCount, moreNewsDiv, moreNewsCount);
+    const wrapper = decorateArticles(articles, featuredDiv, featuredArticleCount, moreNewsDiv, moreNewsCount);
     block.replaceWith(wrapper);
 }
 
