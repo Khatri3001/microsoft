@@ -184,8 +184,8 @@ header nav[aria-expanded='true'] .nav-right-sections {
   margin-left: -14px;
 }
 
-header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop > ul > li,
-header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop > ul > li > ul > li {
+header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li,
+header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li>ul>li {
   padding: 14px 15px 14px;
   border-bottom: 1px solid #e6e6e6;
   color: #262626;
@@ -478,6 +478,10 @@ header nav[button-aria-expanded='true']+div::after {
     position: relative;
     padding-right: 16px;
     cursor: pointer;
+
+    span {
+      font-size: 14px;
+    }
   }
 
   header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li>ul {
@@ -490,12 +494,25 @@ header nav[button-aria-expanded='true']+div::after {
     cursor: pointer;
   }
 
-  header nav .nav-sections .nav-drop::after,
-  header nav .nav-right-sections .nav-right-drop::after {
+  header nav .nav-sections .nav-drop::after {
     content: '';
     display: inline-block;
     position: absolute;
     top: 0.4em;
+    right: 2px;
+    transform: rotate(135deg);
+    width: 6px;
+    height: 6px;
+    border: 2px solid currentcolor;
+    border-radius: 0 1px 0 0;
+    border-width: 2px 2px 0 0;
+  }
+
+  header nav .nav-right-sections .nav-right-drop::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0.6em;
     right: 2px;
     transform: rotate(135deg);
     width: 6px;
@@ -617,6 +634,18 @@ header nav[button-aria-expanded='true']+div::after {
     padding: 0 14px;
   }
 
+  header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li {
+    font-size: 15px;
+    font-weight: 500;
+    padding-top: 12px;
+  }
+
+  header nav[aria-expanded='true'] .nav-right-sections .nav-right-drop>ul>li>ul>li {
+    padding: 14px 0px;
+    border-bottom: none;
+    font-size: 13px;
+  }
+
 }
 
 .nav-wrapper-border {
@@ -639,6 +668,4 @@ header nav .nav-right-sections .nav-right-drop-child::after {
   border-width: 2px 2px 0 0;
 }
 
-nav-right-drop-child > ul >li{
-
-}
+nav-right-drop-child>ul>li {}

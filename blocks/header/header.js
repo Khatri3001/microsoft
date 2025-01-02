@@ -240,7 +240,7 @@ async function loadNav(block) {
         const span = document.createElement("span");
         const ul = navRightSection.querySelector("ul");
         const spanNode = document.createTextNode("All Microsoft");
-        // span.append(spanNode);
+        span.append(spanNode);
         navRightSection.replaceChildren(span);
         navRightSection.append(ul);
         if (navRightSection.querySelector("ul"))
