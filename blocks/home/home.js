@@ -53,7 +53,7 @@ export default async function decorate(block) {
     await fetch('/query-index.json')
         .then((response) => response.json())
         .then((json) => {
-            json.data.sort((a, b) => b.lastModified - a.lastModified).slice(0, featuredArticleCount + moreNewsCount).forEach((post) => {
+            json.data.slice(0, featuredArticleCount + moreNewsCount).forEach((post) => {
                 post.path = window.location.origin + post.path;
                 post.image = createOptimizedPicture(window.location.origin + post.image, '', false, [
                     { width: "750" },
@@ -65,7 +65,7 @@ export default async function decorate(block) {
             });
 
         });
-    const wrapper = decorateArticles(articles, featuredDiv, featuredArticleCount, moreNewsDiv, moreNewsCount);
+    const wrapper = decorateArticles(articles.sort((a, b) => b.date - a.date), featuredDiv, featuredArticleCount, moreNewsDiv, moreNewsCount);
     block.replaceWith(wrapper);
 }
 
