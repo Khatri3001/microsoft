@@ -5,25 +5,20 @@ body {
     font-weight: 400;
 }
 
-.book {
-    width: 60%; 
-    border: 1px solid #e7d9d954;
-}
-
-.book > ul {
+.book>ul {
     list-style-type: none;
     list-style-image: none;
     padding-left: 0px;
 }
 
-.book > ul > li:first-of-type h1 {
+.book>ul>li:first-of-type h1 {
     font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 100 !important;
     font-size: 34px;
     color: #2f2f2f;
 }
 
-.book > ul > li img.social-icon {
+.book>ul>li img.social-icon {
     width: 5%;
     height: 35px;
     aspect-ratio: 4 / 3;
@@ -39,31 +34,31 @@ body {
     padding: 0px 24px 24px;
 }
 
-.book-card-discription > h1 {
+.book-card-discription>h1 {
     font-size: 15px;
     color: #2f2f2f;
     font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
 }
 
-.book-card-discription > h3 {
+.book-card-discription>h3 {
     font-size: 20px;
     color: #2f2f2f;
     font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 35px 0 5px;
 }
 
-.book > ul > li > div.book-card-image > picture > img {
+.book>ul>li>div.book-card-image>picture>img {
     object-fit: cover;
     width: 100%;
 }
 
-.book-card-body > p > a:any-link {
+.book-card-body>p>a:any-link {
     color: #55575f;
     text-decoration: underline !important;
 }
 
-.book-card-body > p > a:any-link:hover {
+.book-card-body>p>a:any-link:hover {
     color: #0067b8;
 }
 

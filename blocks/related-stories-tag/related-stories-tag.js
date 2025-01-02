@@ -22,7 +22,7 @@ export default async function decorate(block) {
         .then((json) => {
             json.data.forEach((post) => {
                 post.tags = post.tags != '' ? JSON.parse(post.tags) : post.tags;
-                if (post.path != window.location.pathname && post.tags.length) {
+                if (new String(post.path).valueOf() != new String(window.location.pathname).valueOf() && post.tags.length) {
                     post.path = window.location.origin + post.path;
                     post.image = createOptimizedPicture(window.location.origin + post.image, '', false, [
                         { width: "200" },

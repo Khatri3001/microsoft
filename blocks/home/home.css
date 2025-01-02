@@ -1,5 +1,5 @@
 .home-container {
-    padding: 0 50px;
+    padding: 35px 24px 5px;
 }
 
 .article-cards {
@@ -36,10 +36,20 @@
 }
 
 .featured-wrapper {
-    flex: 0 0 750px;
+    flex: 2;
+}
+
+.more-news-wrapper {
+    flex: 1;
 }
 
 .article-wrapper {
     display: flex;
     gap: 20px;
+}
+
+@media (width >=900px) {
+    .home-container {
+        padding: 35px 50px 5px;
+    }
 }
