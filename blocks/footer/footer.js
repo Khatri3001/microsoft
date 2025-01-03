@@ -92,6 +92,6 @@ export default async function decorate(block) {
   childMenu.addEventListener("click", function (event) {
     event.target.innerText === "French(fr)"
       ? (window.location.pathname = "fr-fr/")
-      : "en-us/";
+      : (window.location.pathname = "en-us/");
   });
 }
