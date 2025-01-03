@@ -49,7 +49,7 @@ export default async function decorate(block) {
         } = article;
 
         const container = createTag('div', { class: 'article-cards' });
-        const cardImage = createTag('p', { class: 'article-card-image' }, image);
+        //const cardImage = createTag('p', { class: 'article-card-image' }, image);
         const cardBody = createTag('div', { class: 'article-card-body' });
         const descriptionEl = createTag('a', { class: 'article-card-description', href: path });
         const dateEl = createTag('p', { class: 'article-card-date' }, date + '<span>|</span>');
@@ -60,7 +60,7 @@ export default async function decorate(block) {
 
 
         cardBody.append(dateEl, descriptionEl);
-        container.append(cardImage, cardBody);
+        container.append(cardBody);
         wrapper.append(container)
 
     });

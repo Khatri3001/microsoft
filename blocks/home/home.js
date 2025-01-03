@@ -1,6 +1,5 @@
 import { createTag } from "../../utils/utils.js";
 import { createOptimizedPicture } from "../../scripts/aem.js";
-
 function decorateArticles(
   articles,
   featuredDiv,
@@ -12,14 +11,37 @@ function decorateArticles(
   articles.forEach((article, i) => {
     if (!article) return;
 
-    const { path, title, image, date, author } = article;
-    console.log(article.date);
-    const container = createTag("div", { class: "article-cards" });
-    const cardImage = createTag("p", { class: "article-card-image" }, image);
-    const cardBody = createTag("div", { class: "article-card-body" });
-    const descriptionEl = createTag("a", {
-      class: "article-card-description",
-      href: path,
+    const wrapper = createTag("div", { class: "article-wrapper" });
+    articles.forEach((article, i) => {
+      if (!article) return;
+
+      const { path, title, image, date, author } = article;
+      const container = createTag("div", { class: "article-cards" });
+      const cardImage = createTag("p", { class: "article-card-image" }, image);
+      const cardBody = createTag("div", { class: "article-card-body" });
+      const descriptionEl = createTag("a", {
+        class: "article-card-description",
+        href: path,
+      });
+      const dateEl = createTag(
+        "p",
+        { class: "article-card-date" },
+        date + "<span>|</span>"
+      );
+      const titleEl = createTag("a", { href: path }, author);
+      dateEl.append(titleEl);
+      const h3 = createTag("h3", null, title + " >");
+      descriptionEl.append(h3);
+      cardBody.append(dateEl, descriptionEl);
+      if (image) {
+        container.append(cardImage);
+      }
+      container.append(cardBody);
+      if (i < featuredArticleCount) {
+        featuredDiv.append(container);
+      } else {
+        moreNewsDiv.append(container);
+      }
     });
     const dateEl = createTag(
       "p",
