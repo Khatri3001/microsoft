@@ -1,5 +1,6 @@
 import { createTag } from "../../utils/utils.js";
 import { createOptimizedPicture } from "../../scripts/aem.js";
+
 function decorateArticles(
     articles,
     featuredDiv,
@@ -7,7 +8,7 @@ function decorateArticles(
     moreNewsDiv,
     moreNewsCount
 ) {
-    const wrapper = createTag("div", { class: "article-wrapper" });
+        const wrapper = createTag("div", { class: "article-wrapper" });
     articles.forEach((article, i) => {
         if (!article) return;
         const { path, title, image, date, author } = article;
@@ -81,7 +82,7 @@ export default async function decorate(block) {
                             window.location.origin + post.image,
                             "",
                             false,
-                            [{ width: "750" }]
+                            [{ width: "900" }]
                         );
                     }
 
