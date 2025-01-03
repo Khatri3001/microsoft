@@ -88,4 +88,10 @@ export default async function decorate(block) {
   document.addEventListener("click", function () {
     childMenu.style.display = "none";
   });
+
+  childMenu.addEventListener("click", function (event) {
+    event.target.innerText === "French(fr)"
+      ? (window.location.pathname = "fr-fr/")
+      : "en-us/";
+  });
 }
