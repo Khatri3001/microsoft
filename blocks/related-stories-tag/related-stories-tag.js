@@ -17,7 +17,7 @@ function findTopMatchingArrays(referenceArray, arrays) {
 
 export default async function decorate(block) {
     const indexedTags = [];
-    await fetch('/query-index.json')
+    await fetch('/en-us/query-index.json')
         .then((response) => response.json())
         .then((json) => {
             json.data.forEach((post) => {

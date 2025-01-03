@@ -45,11 +45,16 @@ function decorateArticles(
 
 export default async function decorate(block) {
   const articles = [];
+  let queryIndex;
   const language = window.location.pathname.substring(
     1,
     window.location.pathname.length
   );
-  const queryIndexPath = queryIndexUrl(language);
+  console.log("language", language);
+
+  language === "fr-fr/"
+    ? (queryIndex = `${language}query-index.json`)
+    : (queryIndex = "query-index.json");
   const featuredDiv = createTag("div", { class: "featured-wrapper" });
   let featuredArticleCount = 0;
   const moreNewsDiv = createTag("div", { class: "more-news-wrapper" });
@@ -63,7 +68,7 @@ export default async function decorate(block) {
       moreNewsCount = +row.children[1].textContent;
     }
   });
-  await fetch(queryIndexPath)
+  await fetch("/en-us/query-index.json")
     .then((response) => response.json())
     .then((json) => {
       json.data
