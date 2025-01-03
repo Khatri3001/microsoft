@@ -1,14 +1,14 @@
-import { createTag } from "../../utils/utils.js";
+import { createTag, queryIndexUrl } from "../../utils/utils.js";
 import { createOptimizedPicture } from "../../scripts/aem.js";
 
 function decorateArticles(
-    articles,
-    featuredDiv,
-    featuredArticleCount,
-    moreNewsDiv,
-    moreNewsCount
+  articles,
+  featuredDiv,
+  featuredArticleCount,
+  moreNewsDiv,
+  moreNewsCount
 ) {
-        const wrapper = createTag("div", { class: "article-wrapper" });
+     const wrapper = createTag("div", { class: "article-wrapper" });
     articles.forEach((article, i) => {
         if (!article) return;
         const { path, title, image, date, author } = article;
@@ -45,13 +45,12 @@ function decorateArticles(
 }
 
 export default async function decorate(block) {
-    const articles = [];
-    let queryIndex;
-    const language = window.location.pathname.substring(
-        1,
-        window.location.pathname.length
-    );
-    console.log("language", language);
+  const articles = [];
+  const language = window.location.pathname.substring(
+    1,
+    window.location.pathname.length
+  );
+  const queryIndexPath = queryIndexUrl(language);
 
     language === "fr-fr/"
         ? (queryIndex = `${language}query-index.json`)
@@ -82,23 +81,23 @@ export default async function decorate(block) {
                             window.location.origin + post.image,
                             "",
                             false,
-                            [{ width: "900" }]
+                            [{ width: "750" }]
                         );
                     }
 
-                    const date = new Date(post.date * 1000);
-                    const options = { year: "numeric", month: "short", day: "numeric" };
-                    post.date = date.toLocaleDateString("en-US", options);
+          const date = new Date(post.date * 1000);
+          const options = { year: "numeric", month: "short", day: "numeric" };
+          post.date = date.toLocaleDateString("en-US", options);
 
-                    articles.push(post);
-                });
+          articles.push(post);
         });
-    const wrapper = decorateArticles(
-        articles,
-        featuredDiv,
-        featuredArticleCount,
-        moreNewsDiv,
-        moreNewsCount
-    );
-    block.replaceWith(wrapper);
+    });
+  const wrapper = decorateArticles(
+    articles,
+    featuredDiv,
+    featuredArticleCount,
+    moreNewsDiv,
+    moreNewsCount
+  );
+  block.replaceWith(wrapper);
 }
