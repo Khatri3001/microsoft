@@ -3,6 +3,10 @@
     background-color: #fff;
 }
 
+.article-wrapper {
+    width: 400px;
+}
+
 .article-card-body {
     padding: 24px 24px 32px;
 }
@@ -28,5 +32,12 @@
         font-weight: 500;
         font-size: 24px;
         font-family: inherit;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-wrapper {
+        width: 350px;
+        margin-left: 10px;
     }
 }

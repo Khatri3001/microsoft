@@ -339,6 +339,35 @@ main>.section:first-of-type {
   }
 }
 
+@media (max-width: 768px) {
+
+  .section.book-container.related-stories-container,
+  .section.blog-container.related-stories-container,
+  .section.news-container.related-stories-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-wrapper {
+    width: 480px;
+    margin-left: -50px !important;
+  }
+
+  .blog-wrapper {
+    width: 400px;
+    margin-left: -35px !important;
+  }
+
+  .news-wrapper {
+    width: 400px !important;
+  }
+
+  .article-card-body {
+    width: 300px !important;
+    margin-left: 10px !important;
+  }
+}
+
 
 @media (width >=900px) {
   main>.section>div {

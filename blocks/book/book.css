@@ -8,8 +8,11 @@ body {
 .book>ul {
     list-style-type: none;
     list-style-image: none;
-    padding-left: 0px;
+    padding-left: 0;
+    width: 85% !important;
+    margin: 0 auto;
 }
+
 
 .book>ul>li:first-of-type h1 {
     font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -19,7 +22,7 @@ body {
 }
 
 .book>ul>li img.social-icon {
-    width: 5%;
+    width: 7%;
     height: 35px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
@@ -83,4 +86,14 @@ blockQuote p {
 
 ul {
     list-style-type: auto;
+}
+
+@media (max-width: 768px) {
+    .book>ul {
+        list-style-type: none;
+        list-style-image: none;
+        padding-left: 0;
+        width: 70% !important;
+        margin: 0 auto;
+    }
 }
